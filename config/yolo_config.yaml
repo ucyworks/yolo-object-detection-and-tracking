@@ -1,0 +1,48 @@
+# YOLO Model Configuration
+model:
+  name: 'yolov8n.pt'  # Model name (alternatives: yolov8s.pt, yolov8m.pt, yolov8l.pt, yolov8x.pt)
+  confidence: 0.45    # Detection confidence threshold
+  iou_threshold: 0.45 # IOU threshold for NMS
+
+# Classes to be detected (empty list means all classes)
+# Comment out classes you don't want to detect
+classes:
+  - person
+  - car
+  - bicycle
+  - motorcycle
+  - bus
+  - truck
+  - laptop
+  - cell phone
+  # Add more classes as needed
+
+# Tracker Configuration
+tracker:
+  type: 'bytetrack'   # Tracking algorithm (options: bytetrack, botsort)
+  max_age: 30         # Maximum frames to keep lost tracks
+  min_hits: 3         # Minimum detections before track is initialized
+  iou_threshold: 0.3  # IOU threshold for tracking association
+
+# Display Configuration
+display:
+  show_boxes: true          # Display bounding boxes
+  show_labels: true         # Display class labels
+  show_confidence: true     # Display confidence scores
+  box_thickness: 2          # Bounding box thickness
+  text_thickness: 2         # Text thickness
+  text_scale: 0.8           # Text scale
+  show_fps: true            # Display FPS
+  text_color: [255, 255, 255] # Text color (BGR)
+
+# Video Configuration
+video:
+  width: 640        # Frame width
+  height: 480       # Frame height
+  fps: 30           # Target FPS
+
+# Save Configuration
+save:
+  enabled: false    # Save processed video
+  output_path: './output/output.mp4'  # Output path
+  codec: 'mp4v'     # Video codec
