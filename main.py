@@ -147,6 +147,11 @@ def main():
             if config['display']['show_fps']:
                 output_frame = visualizer.draw_fps(output_frame, fps)
             
+            # Add exit instructions to the frame
+            font = cv2.FONT_HERSHEY_SIMPLEX
+            cv2.putText(output_frame, "Press 'q' or ESC to exit", 
+                        (10, frame_height - 10), font, 0.5, (0, 0, 255), 1, cv2.LINE_AA)
+            
             # Display the resulting frame
             if args.show:
                 cv2.imshow('YOLO Object Detection & Tracking', output_frame)
@@ -155,8 +160,10 @@ def main():
             if out is not None:
                 out.write(output_frame)
             
-            # Break the loop if 'q' is pressed
-            if cv2.waitKey(1) & 0xFF == ord('q'):
+            # Break the loop if 'q' or ESC is pressed
+            key = cv2.waitKey(1) & 0xFF
+            if key == ord('q') or key == 27:  # 27 is the ASCII code for ESC
+                print("Camera closed by user")
                 break
     
     finally:

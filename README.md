@@ -20,7 +20,7 @@ A robust, modular object detection and tracking system built with YOLOv8, OpenCV
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/yolo-object-detection.git
+git clone https://github.com/ucytv/yolo-object-detection.git/
 cd yolo-object-detection
 
 # Create and activate a virtual environment (optional but recommended)
